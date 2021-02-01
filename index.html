@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+    <title>My Book Store</title>
+    <script
+    src="https://kit.fontawesome.com/49ec2f22e7.js"
+    crossorigin="anonymous"></script>
+  </head>
+  <body onload="init()">
+    <section class="sort-by"><h3>Sort By</h3>
+        <select onchange="onSortTable()" name="sortBy">
+            <option>Title Name</option>
+            <option>Author Name</option>
+            <option>Price</option>
+        </select>
+    </section>
+    <div class="table-container"></div>
+    <div class="add-book" onclick="onAddBook()">Add Book</div>
+    <button class="page-select previous-page" onclick="onPreviousPage()">Previous Page</button>
+    <button class="page-select next-page" onclick="onNextPage()">Next Page</button>
+    <script src="js/util.service.js"></script>
+    <script src="js/storage-service.js"></script>
+    <script src="js/book-service.js"></script>
+    <script src="js/book-controller.js"></script>
+  </body>
+</html>

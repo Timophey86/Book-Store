@@ -1,0 +1,127 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: beige;
+}
+
+.table-content {
+    height: 500px;
+    width: 600px;
+}
+
+table {
+    border: 1px solid black;
+}
+
+th {
+    height: 40px;
+    width: 60px;
+    background-color: cornflowerblue;
+    border: 1px solid black;
+}
+
+td {
+    text-align: center;
+    height: 40px;
+    width: 100px;
+    background-color: cadetblue;
+    border: 1px solid black;
+}
+
+
+.action {
+    text-align: center;
+    height: 40px;
+    width: 300px;
+    background-color: cadetblue;
+    border: 1px solid black;
+}
+
+button {
+    margin-left: 5px;
+    margin-top: 5px;
+    width: 60px;
+    font-size: small;
+    background-color: cornsilk;
+    cursor: pointer;
+}
+
+.add-book {
+    margin-top: 10px;
+    text-align: center;
+    line-height: 20px;
+    height: 30px;
+    width: 80px;
+    padding: 5px;
+    display: inline-block;
+    background-color: darkkhaki;
+    border:1px solid black ;
+    cursor: pointer;   
+}
+
+.add-book:hover {
+    background-color: coral;
+}
+
+
+
+img {
+    height: 350px;
+    width: 240px;
+}
+
+.go-back {
+    margin-top: 10px;
+    text-align: center;
+    height: 20px;
+    width: 50px;
+    background-color: burlywood;
+    border: 1px solid black;
+    color: black;
+    cursor: pointer;
+}
+
+
+.book-rating{
+    margin-top: 10px;
+    width: 500px;
+    height: 30px;
+    font-size: large;
+}
+
+.rate-book {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    width: 160px;
+    height: 50px;
+
+}
+
+i {
+    margin-left: 5px;
+}
+
+.rate {
+    margin-left: 5px;
+    font-size: xx-large;
+    width: 50px;
+    text-align: center;
+}
+
+.submit {
+    margin-left: 10px;
+    width: 100px;
+}
+
+.next-page {
+    width: 80px;
+    background-color: darkkhaki;
+    margin-left: 40px;
+}
+.previous-page {
+    width: 130px;
+    background-color: darkkhaki;
+    margin-left: 380px;
+}
