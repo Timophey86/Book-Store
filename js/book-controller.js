@@ -20,6 +20,7 @@ function renderDetailsPage() {
   var selectedFromGbooks = gBooks.find(function (b) {
     return gBookDetails.id === b.id;
   });
+  console.log(selectedFromGbooks)
   var strHtml = `<h2 class="book-title">${gBookDetails.title}</h2>
     <h3 class="book-author">By: ${gBookDetails.author}</h3>
     <img src="img/${gBookDetails.photo}" alt="" />

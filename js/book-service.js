@@ -98,6 +98,9 @@ function removeBookById(bookId) {
   });
   gBooks.splice(idx, 1);
   _saveBooksToStorage();
+  if (gBooks.length === 0) {
+    _createBooks
+  }
 }
 
 function addBook() {
