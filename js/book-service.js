@@ -27,6 +27,9 @@ function _createBook() {
     author: makeAuthor(),
     price: getRandomIntInclusive(1, 70),
     title: makeLorem(),
+    cover: getRandomIntInclusive(1, 8),
+    rating: 0,
+    amountOfRatings: 0
   };
 }
 
@@ -45,11 +48,11 @@ function previousPage() {
 }
 
 function getSortedBooks() {
-  if (gSortBy === "Title Name") {
+  if (gSortBy === "title") {
     var books = gBooks.sort(function (a, b) {
       return a.title > b.title ? 1 : -1;
     });
-  } else if (gSortBy === "Author Name") {
+  } else if (gSortBy === "author-name") {
     var books = gBooks.sort(function (a, b) {
       return a.author > b.author ? 1 : -1;
     });
@@ -69,13 +72,15 @@ function getBookDetails(bookId) {
   var selectedBook = gBooks.find(function (book) {
     return +book.id === bookId;
   });
+  // console.log(selectedBook)
   return {
+    id: selectedBook.id,
     author: selectedBook.author,
     title: selectedBook.title,
-    photo: getRandomIntInclusive(1, 8) + `.jpg`,
+    photo: selectedBook.cover + `.jpg`,
     description: makeLorem(100),
-    rate: 0,
-    howManyRated: 0,
+    rate: selectedBook.rating,
+    howManyRated: selectedBook.amountOfRatings,
   };
 }
 
@@ -112,39 +117,59 @@ function getBooks() {
 
 function increaseRate() {
   var bookRateValue = document.querySelector(".rate");
+  if (bookRateValue.value >= 10) return
   bookRateValue.value++;
 }
 
 function decreaseRate() {
   var bookRateValue = document.querySelector(".rate");
+  if (bookRateValue.value <= 0) return
   bookRateValue.value--;
 }
 
 function addRating(book) {
+  var selectedFromGbooks = gBooks.find(function (b) {
+    return b.id === book.id;
+  });
+  console.log(selectedFromGbooks)
   var bookRatingToSubmit = document.querySelector(".rate");
   // book.howManyRated =0
   // book.rate = 0
-  book.howManyRated++;
-  book.rate = (book.rate + +bookRatingToSubmit.value) / book.howManyRated;
+  selectedFromGbooks.amountOfRatings++;
+  selectedFromGbooks.rating = (selectedFromGbooks.rating + +bookRatingToSubmit.value) / selectedFromGbooks.amountOfRatings;
+  _saveBooksToStorage();
+}
+
+function addBookManually () {
+  var titleName = document.querySelector(".title-name")
+  var authorName = document.querySelector(".author-name")
+  var book = _createBook()
+  book.author = authorName.value
+  book.title = titleName.value
+  gBooks.push(book)
+  _saveBooksToStorage()
 }
 
 function toggleElmentsDisplay() {
   var elAddBook = document.querySelector(".add-book");
   var elSortBy = document.querySelector(".sort-by");
   var elPageScrollBtns = document.getElementsByClassName("page-select");
+  var elAddManually = document.querySelector(".add-manually")
   if (elSortBy.style.display === "none" && elAddBook.style.display === "none") {
     elSortBy.style.display = "inline-block";
     elAddBook.style.display = "inline-block";
+    elAddManually.style.display = "flex";
     Array.from(elPageScrollBtns).forEach(function (btn) {
       btn.style.display = "inline-block";
     });
   } else {
     elSortBy.style.display = "none";
     elAddBook.style.display = "none";
+    elAddManually.style.display = "none";
     Array.from(elPageScrollBtns).forEach(function (btn) {
       btn.style.display = "none";
     });
   }
 }
 
-console.log(gBooks);
+

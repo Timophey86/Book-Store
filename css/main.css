@@ -2,8 +2,14 @@
     box-sizing: border-box;
 }
 
+body.rtl {
+    direction: rtl;
+}
+
+
 body {
     background-color: beige;
+    position: relative;
 }
 
 .table-content {
@@ -124,4 +130,68 @@ i {
     width: 130px;
     background-color: darkkhaki;
     margin-left: 380px;
+}
+
+body.rtl .next-page {
+    width: 80px;
+    background-color: darkkhaki;
+    margin-right: 20px;
+} 
+
+body.rtl .previous-page {
+    width: 130px;
+    background-color: darkkhaki;
+    margin-left: 0;
+    margin-right: 380px;
+}
+section {
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.add-manually h3 {
+    margin-bottom: 5px;
+    margin-right: 20px;
+}
+
+.select-language {
+    position: absolute;
+    left: 300px;
+    top: 0;
+}
+
+body.rtl .select-language{
+    position: absolute;
+    right: 300px;
+    top: 0px;
+}
+
+body.rtl .enter-book{
+    margin-left: 15px;
+}
+
+body.rtl .author-name{
+    margin-right: 10px;
+}
+
+.add-manually {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row; 
+}
+
+.add-manually h4 {
+    margin: 5px 0px;
+}
+
+.author-name{
+    margin-left: 10px;
+}
+
+.add-manually-btn {
+    margin-top: 23px;
+    margin-left: 10px;
+    height: 30px;
+    width: 80px;
+    background-color: darkkhaki;
 }
